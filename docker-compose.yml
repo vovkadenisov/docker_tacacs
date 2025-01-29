@@ -1,0 +1,11 @@
+services:
+  tacacs:
+    build: .
+    ports:
+      - "49:49/tcp"
+      - "49:49/udp"
+    volumes:
+      - ./tac_plus.conf:/etc/tacacs+/tac_plus.conf
+      - ./log/:/var/log/
+    container_name: tacacs_server
+    restart: unless-stopped
